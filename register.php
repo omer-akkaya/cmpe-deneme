@@ -1,5 +1,7 @@
 <?php
-require "function.php";
+// start session
+session_start();
+// if session exist (user signed in), redirect to index page
 if (isset($_SESSION["id"])) {
     header("Location: index.php");
 }
@@ -26,5 +28,5 @@ if (isset($_SESSION["id"])) {
             <button id="button">Register</button>
         </form><br>
         <a href="login.php">Go to login</a>
-        <?php require "script.php"; ?>
+        <?php require "js/script.php"; ?>
 </body>

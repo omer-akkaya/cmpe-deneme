@@ -12,7 +12,7 @@
         };
 
         $.ajax({
-            url: "function.php",
+            url: "api/user.php",
             type: "post",
             data,
             success: (response) => {
@@ -22,7 +22,7 @@
                     window.location.replace("index.php")
                 }
                 if (response == "Registiration is successful") {
-                    return
+                    window.location.replace("index.php")
                 }
             },
 
