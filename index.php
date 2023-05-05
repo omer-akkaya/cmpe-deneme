@@ -8,82 +8,15 @@ if (!isset($_SESSION["id"])) {
 ?>
 
 <!DOCTYPE html>
+<!-- head starts-->
 
 <head>
     <title>iMed: Online Medical Shopping</title>
-    <!-- favicon gelecek buraya-->
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-
-        body {
-            /* for desktop only */
-            min-width: 1500px;
-        }
-
-        header {
-            background-color: black;
-            height: 80px;
-        }
-
-        .header-flex {
-            height: 100%;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1280px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 20px;
-        }
-
-        .header-flex__right {
-            display: flex;
-            gap: 30px;
-        }
-
-        .hero {
-            background-color: #bd5734;
-            padding-top: 30%;
-            width: 100%;
-            margin: auto;
-            position: relative;
-        }
-
-        .hero__text {
-            color: white;
-            position: absolute;
-            width: 100%;
-            top: 40px;
-            left: 0px;
-            text-align: center;
-        }
-
-        .btn {
-            background-color: #000080;
-            padding: 15px;
-            border-radius: 30px;
-            cursor: pointer;
-        }
-
-        .btn--logout {
-            background-color: red;
-        }
-
-        .btn--basket {
-            background-color: blue;
-        }
-
-        .btn--user {
-            background-color: grey;
-        }
-    </style>
+    <?php include "styles/index.css.php";
+    include "js/index.js.php" ?>
 </head>
+<!-- head ends-->
+<!-- body starts-->
 
 <body>
     <!-- header starts-->
@@ -91,9 +24,17 @@ if (!isset($_SESSION["id"])) {
         <div class="header-flex">
             <div>iMed Logo</div>
             <div class="header-flex__right">
-                <div class="btn btn--logout">Log Out</div>
-                <div class="btn btn--basket">Basket (0)</div>
-                <div class="btn btn--user">Username</div>
+                <div class="btn btn--logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Log Out
+                </div>
+                <div class="btn btn--basket">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    Basket (0)
+                </div>
+                <div class="btn btn--user">
+                    <i class="fa-solid fa-user"></i>
+                </div>
             </div>
         </div>
     </header>
@@ -101,28 +42,52 @@ if (!isset($_SESSION["id"])) {
 
     <!-- hero section starts-->
     <div class="hero">
-        <div class="hero__text">Öykü will design hero banner</div>
+        <div class="hero__text">hero banner design<br>kategori resimleri eklencek<br>eray ürün fotoğrafları<br>favicon
+            design<br>
+        </div>
     </div>
-    <!-- hero sectionends-->
+    <!-- hero section ends-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        $("document").ready(function () {
-            $(".btn--logout").click(function () {
-                $.ajax({
-                    url: "api/user.php",
-                    type: "post",
-                    data: { action: "logout" },
-                    success: (response) => {
-                        if (response == "success") {
-                            window.location.replace("login.php")
-                        }
-                    }
-                }
-                )
-            })
-        })
-    </script>
+    <!-- categories section starts-->
+    <div class="categories">
+        <div class="categories__title">Categories</div>
+        <div class="categories__items"></div>
+    </div>
+    <!-- categories section ends-->
+
+    <!-- best sellers section starts-->
+    <div style="background-color: #f0efef;">
+        <div class="bestseller">
+            <div class="bestseller__title">Best Sellers</div>
+            <div class="bestseller__items"></div>
+        </div>
+    </div>
+
+    <!-- best sellers section ends-->
+
+    <!-- cards section starts-->
+    <div class="cards">
+        <div class="cards__card">
+            <i class="fa-solid fa-capsules" style="font-size: 50px;"></i>
+            Reliable products
+        </div>
+        <div class=" cards__card">
+            <i class="fa-solid fa-face-smile" style="font-size: 40px;"></i>
+            Smooth shopping experince
+        </div>
+        <div class="cards__card">
+            <i class="fa-solid fa-truck-fast" style="font-size: 40px;"></i>
+            Same day delivery
+        </div>
+    </div>
+    <!-- cards section ends-->
+
+    <!-- footer section starts-->
+    <footer>
+        <div>Copyright 2023 -- CMPE 372 Project Group 2 -- (More content will be added)</div>
+    </footer>
+    <!-- footer section ends-->
 </body>
+<!-- body ends-->
 
 </html>

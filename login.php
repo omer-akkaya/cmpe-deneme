@@ -1,6 +1,5 @@
 <?php
-// start session
-session_start();
+include_once "includes/database.php";
 // if session exist (user signed in), redirect to index page
 if (isset($_SESSION["id"])) {
     header("Location: index.php");
@@ -8,11 +7,11 @@ if (isset($_SESSION["id"])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8">
     <title>Login</title>
+    <?php require "js/login.js.php"; ?>
 </head>
 
 <body>
@@ -27,5 +26,6 @@ if (isset($_SESSION["id"])) {
         <button id="button">Login</button>
     </form><br>
     <a href="register.php">Go to Register</a>
-    <?php require "js/script.php"; ?>
 </body>
+
+</html>

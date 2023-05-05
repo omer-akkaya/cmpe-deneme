@@ -1,6 +1,5 @@
 <?php
-// start session
-session_start();
+include_once "includes/database.php";
 // if session exist (user signed in), redirect to index page
 if (isset($_SESSION["id"])) {
     header("Location: index.php");
@@ -8,25 +7,44 @@ if (isset($_SESSION["id"])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
     <title>Register</title>
+    <?php
+    require "js/register.js.php";
+    require "styles/register.css.php";
+    ?>
 </head>
 
 <body>
-    <h2>Register</h1>
-        <form action="" method="post" autocomplete="off">
-            <input type="hidden" id="action" value="register">
-            <label for="">Name</label>
-            <input type="text" name="" id="name"><br>
-            <label for="">Email</label>
-            <input type="text" id="email"><br>
-            <label for="">Password</label>
-            <input type="password" name="" id="password"><br>
-            <button id="button">Register</button>
-        </form><br>
-        <a href="login.php">Go to login</a>
-        <?php require "js/script.php"; ?>
+    <!-- header starts-->
+    <header>
+        <div class="header-flex">
+            <div>iMed Logo</div>
+        </div>
+        </div>
+    </header>
+    <!-- header ends-->
+    <main>
+        <h2>Register</h1>
+            <form action="" method="post" autocomplete="off">
+                <input type="hidden" id="action" value="register">
+                <label for="">Name</label>
+                <input type="text" name="" id="name">
+                <label for="">Email</label>
+                <input type="email" id="email">
+                <label for="">Password</label>
+                <input type="password" name="" id="password">
+                <button id="button1">Register</button>
+                <button id="button2">Go to login</button>
+            </form>
+    </main>
+
+    <!-- footer section starts-->
+    <footer>
+        <div>Copyright 2023 -- CMPE 372 Project Group 2 -- (More content will be added)</div>
+    </footer>
+    <!-- footer section ends-->
 </body>
+
+</html>
