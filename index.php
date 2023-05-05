@@ -11,7 +11,7 @@ if (!isset($_SESSION["id"])) {
 <!-- head starts-->
 
 <head>
-    <title>iMed: Online Medical Shopping</title>
+    <title>eMed: Online Medical Shopping</title>
     <?php include "styles/index.css.php";
     include "js/index.js.php" ?>
 </head>
@@ -22,18 +22,18 @@ if (!isset($_SESSION["id"])) {
     <!-- header starts-->
     <header>
         <div class="header-flex">
-            <div>iMed Logo</div>
+            <div>eMed Logo</div>
             <div class="header-flex__right">
-                <div class="btn btn--logout">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    Log Out
-                </div>
                 <div class="btn btn--basket">
                     <i class="fa-solid fa-basket-shopping"></i>
                     Basket (0)
                 </div>
                 <div class="btn btn--user">
                     <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="btn btn--logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Log Out
                 </div>
             </div>
         </div>
@@ -83,9 +83,7 @@ if (!isset($_SESSION["id"])) {
     <!-- cards section ends-->
 
     <!-- footer section starts-->
-    <footer>
-        <div>Copyright 2023 -- CMPE 372 Project Group 2 -- (More content will be added)</div>
-    </footer>
+    <?php include "includes/footer.php" ?>
     <!-- footer section ends-->
 </body>
 <!-- body ends-->

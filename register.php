@@ -8,6 +8,8 @@ if (isset($_SESSION["id"])) {
 
 <!DOCTYPE html>
 
+<!-- head starts-->
+
 <head>
     <title>Register</title>
     <?php
@@ -15,8 +17,11 @@ if (isset($_SESSION["id"])) {
     require "styles/register.css.php";
     ?>
 </head>
+<!-- head ends-->
+
 
 <body>
+
     <!-- header starts-->
     <header>
         <div class="header-flex">
@@ -25,6 +30,8 @@ if (isset($_SESSION["id"])) {
         </div>
     </header>
     <!-- header ends-->
+
+    <!-- form starts-->
     <main>
         <h2>Register</h1>
             <form action="" method="post" autocomplete="off">
@@ -39,11 +46,11 @@ if (isset($_SESSION["id"])) {
                 <button id="button2">Go to login</button>
             </form>
     </main>
+    <!-- form ends-->
+
 
     <!-- footer section starts-->
-    <footer>
-        <div>Copyright 2023 -- CMPE 372 Project Group 2 -- (More content will be added)</div>
-    </footer>
+    <?php include "includes/footer.php" ?>
     <!-- footer section ends-->
 </body>
 

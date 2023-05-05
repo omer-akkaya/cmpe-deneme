@@ -99,8 +99,6 @@
         height: 100px;
     }
 
-
-
     footer div {
         color: white;
         text-align: center;
