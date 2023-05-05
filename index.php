@@ -1,41 +1,125 @@
 <?php
-//start the session
-session_start();
-//connect to the database
-$conn = mysqli_connect("localhost", "root", "", "cmpe-deneme");
-if (isset($_SESSION["id"])) {
-    $id = $_SESSION["id"];
-    $user = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM customer WHERE id = $id"));
-} else {
+// include database connection and session
+include_once "includes/database.php";
+// redirect user to login page if session does not exists
+if (!isset($_SESSION["id"])) {
     header("Location: login.php");
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <title>Index</title>
+    <title>iMed: Online Medical Shopping</title>
+    <!-- favicon gelecek buraya-->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            /* for desktop only */
+            min-width: 1500px;
+        }
+
+        header {
+            background-color: black;
+            height: 80px;
+        }
+
+        .header-flex {
+            height: 100%;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 20px;
+        }
+
+        .header-flex__right {
+            display: flex;
+            gap: 30px;
+        }
+
+        .hero {
+            background-color: #bd5734;
+            padding-top: 30%;
+            width: 100%;
+            margin: auto;
+            position: relative;
+        }
+
+        .hero__text {
+            color: white;
+            position: absolute;
+            width: 100%;
+            top: 40px;
+            left: 0px;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #000080;
+            padding: 15px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .btn--logout {
+            background-color: red;
+        }
+
+        .btn--basket {
+            background-color: blue;
+        }
+
+        .btn--user {
+            background-color: grey;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Welcome
-        <?php echo $user["name"]; ?>
-    </h1>
-    <a href="logout.php">Logout</a>
-    <button id="button">click me</button>
+    <!-- header starts-->
+    <header>
+        <div class="header-flex">
+            <div>iMed Logo</div>
+            <div class="header-flex__right">
+                <div class="btn btn--logout">Log Out</div>
+                <div class="btn btn--basket">Basket (0)</div>
+                <div class="btn btn--user">Username</div>
+            </div>
+        </div>
+    </header>
+    <!-- header ends-->
+
+    <!-- hero section starts-->
+    <div class="hero">
+        <div class="hero__text">Öykü will design hero banner</div>
+    </div>
+    <!-- hero sectionends-->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-        $("#button").click(function (event) {
-            event.preventDefault();
-            $.ajax({
-                url: "api/user.php",
-                type: "get",
-                success: function (response) {
-                    console.log(response);
+        $("document").ready(function () {
+            $(".btn--logout").click(function () {
+                $.ajax({
+                    url: "api/user.php",
+                    type: "post",
+                    data: { action: "logout" },
+                    success: (response) => {
+                        if (response == "success") {
+                            window.location.replace("login.php")
+                        }
+                    }
                 }
-
+                )
             })
         })
     </script>

@@ -14,14 +14,16 @@
         $.ajax({
             url: "api/user.php",
             type: "post",
-            data,
+            data: data,
             success: (response) => {
                 console.log(data);
                 console.log(response);
                 if (response == "Login successful") {
+                    alert("login successful")
                     window.location.replace("index.php")
                 }
                 if (response == "Registiration is successful") {
+                    alert("registiration successful")
                     window.location.replace("index.php")
                 }
             },
