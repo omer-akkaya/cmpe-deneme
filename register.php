@@ -1,4 +1,5 @@
 <?php
+// -------------------------------------------------------- COMPLETED
 include_once "includes/database.php";
 // if session exist (user signed in), redirect to index page
 if (isset($_SESSION["id"])) {
