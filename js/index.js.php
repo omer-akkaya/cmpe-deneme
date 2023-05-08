@@ -61,5 +61,9 @@
             }
         })
 
+        function deneme() {
+            return false
+        }
+
     })
 </script>
