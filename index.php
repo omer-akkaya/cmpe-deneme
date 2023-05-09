@@ -16,13 +16,15 @@ if (!isset($_SESSION["id"])) {
     include "js/index.js.php" ?>
 </head>
 <!-- head ends-->
+
+
 <!-- body starts-->
 
 <body>
     <!-- header starts-->
     <header>
         <div class="header-flex">
-            <div>eMed Logo</div>
+            <div id="logo">eMed Logo</div>
             <div class="header-flex__right">
                 <div class="btn btn--basket">
                     <i class="fa-solid fa-basket-shopping"></i>
@@ -41,11 +43,7 @@ if (!isset($_SESSION["id"])) {
     <!-- header ends-->
 
     <!-- hero section starts-->
-    <div class="hero">
-        <div class="hero__text">hero banner design<br>kategori resimleri eklencek<br>eray ürün fotoğrafları<br>favicon
-            design<br>
-        </div>
-    </div>
+    <img id="hero" src="public/hero.jpg">
     <!-- hero section ends-->
 
     <!-- categories section starts-->
@@ -62,7 +60,6 @@ if (!isset($_SESSION["id"])) {
             <div class="bestseller__items"></div>
         </div>
     </div>
-
     <!-- best sellers section ends-->
 
     <!-- cards section starts-->
