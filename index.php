@@ -12,8 +12,12 @@ if (!isset($_SESSION["id"])) {
 
 <head>
     <title>eMed: Online Medical Shopping</title>
-    <?php include "styles/index.css.php";
-    include "js/index.js.php" ?>
+    <?php
+    include "js/header.js.php";
+    include "styles/header.css.php";
+    include "styles/index.css.php";
+    include "js/index.js.php";
+    ?>
 </head>
 <!-- head ends-->
 
@@ -22,24 +26,7 @@ if (!isset($_SESSION["id"])) {
 
 <body>
     <!-- header starts-->
-    <header>
-        <div class="header-flex">
-            <div id="logo">eMed Logo</div>
-            <div class="header-flex__right">
-                <div class="btn btn--basket">
-                    <i class="fa-solid fa-basket-shopping"></i>
-                    Basket (0)
-                </div>
-                <div class="btn btn--user">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <div class="btn btn--logout">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    Log Out
-                </div>
-            </div>
-        </div>
-    </header>
+    <?php include "includes/header.php" ?>
     <!-- header ends-->
 
     <!-- hero section starts-->
