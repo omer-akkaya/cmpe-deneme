@@ -4,7 +4,6 @@
     $("document").ready(function () {
         //assign onclick function to button1
         $("#button1").click(function (event) {
-            console.log("preventdefault");
             event.preventDefault();
             const data = {
                 name: $("#name").val(),

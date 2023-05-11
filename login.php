@@ -26,16 +26,16 @@ if (isset($_SESSION["id"])) {
     </header>
     <!-- header ends-->
     <main>
-        <h2>Login</h1>
-            <form action="" method="post" autocomplete="off">
-                <input type="hidden" id="action" value="login">
-                <label for="">Email</label>
-                <input type="email" id="email">
-                <label for="">Password</label>
-                <input type="password" name="" id="password">
-                <button id="button1">Login</button>
-                <button id="button2">Go to register</button>
-            </form>
+        <h2>Login</h2>
+        <form action="" method="post" autocomplete="off">
+            <input type="hidden" id="action" value="login">
+            <label for="">Email</label>
+            <input type="email" id="email">
+            <label for="">Password</label>
+            <input type="password" name="" id="password">
+            <button id="button1">Login</button>
+            <button id="button2">Go to register</button>
+        </form>
     </main>
 
     <!-- footer section starts-->

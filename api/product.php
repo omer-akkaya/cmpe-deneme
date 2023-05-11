@@ -1,6 +1,6 @@
 <?php
 require_once "../includes/database.php";
-// exit if user is not logged in. protect api routes.
+// exit if user is not logged in. protect api route from unauthorized access.
 if (!$_SESSION["id"]) {
     exit();
 }

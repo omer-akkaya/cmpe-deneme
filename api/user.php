@@ -88,8 +88,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 //check if request method is PUT
-if ($_SERVER["REQUEST_METHOD"] == "PUT") {
-    echo "put mode";
+if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST["action"] == "update-profile") {
+    //for using $conn variable defined outside of this scope 
+    global $conn;
+    //get name, email and password from posted data
+    $id = $_POST["id"]; //28
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    //check if email or password or name is empty, if it is send error message and stop execution.
+    if (empty($name) or empty($email) or empty($password)) {
+        echo "Please fill out the form";
+        exit();
+    }
+    //check if email is used by another user on database, if it is; send error message and stop execution.
+    $user = mysqli_query($conn, "SELECT * FROM customer WHERE email = '$email'");
+    if (mysqli_num_rows($user) > 0) {
+        echo "Email has already taken...";
+        exit();
+    }
+
+    // I am trying to solve email has already taken problem by comparing database and incoming value. If value changed, make UPDATE on database. If not,
+    // leave it as it is.
+
+    // // If there is no error, UPDATE record on database
+    // $query = "UPDATE customers SET name='$name', email='$email', password='$password' WHERE id='$id'";
+    // mysqli_query($conn, $query);
+    // //send success message
+    // echo "User information UPDATED successfully";
 }
 
 //check if request method is DELETE
