@@ -38,6 +38,8 @@ if (!isset($_SESSION["id"])) {
         <label>Password</label>
         <input type="password" name="" id="password">
         <button id="button2">Update my information</button>
+        <div id="success-message" class="hidden">Successfully updated!</div>
+        <div id="error-message" class="hidden">An error occured...</div>
     </form>
     <!-- Form ends -->
 

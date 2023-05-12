@@ -29,5 +29,24 @@
     button {
         height: 50px;
         font-size: 20px;
+        cursor: pointer;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #error-message {
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding: 10px 0px 10px 0px;
+    }
+
+    #success-message {
+        background-color: green;
+        color: white;
+        text-align: center;
+        padding: 10px 0px 10px 0px;
     }
 </style>
