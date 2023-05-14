@@ -44,4 +44,19 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
         echo json_encode(["code" => 400, "message" => "An error occured!"]);
     }
 }
+
+
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["category_id"])) {
+    global $conn;
+    $category_id = $_GET["category_id"];
+    $query = "SELECT * from products WHERE category_id = '$category_id'";
+    $result = mysqli_query($conn, $query);
+    $number_rows = mysqli_num_rows($result);
+    $rows = [];
+    while ($row = mysqli_fetch_array($result)) {
+        $rows[] = $row;
+    }
+    header("Content-type: application/json");
+    echo json_encode($rows);
+}
 ?>
