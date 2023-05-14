@@ -52,6 +52,7 @@ if ($req_method == "GET" && isset($_GET["id"])) {
 if ($req_method == "GET" && isset($_GET["category_id"])) {
     global $conn;
     $category_id = $_GET["category_id"];
+    $sort_by = $_GET["sort_by"];
     try {
         $query = "SELECT * from products WHERE category_id='$category_id'";
         $result = mysqli_query($conn, $query);
@@ -59,8 +60,9 @@ if ($req_method == "GET" && isset($_GET["category_id"])) {
         while ($row = mysqli_fetch_array($result)) {
             $rows[] = $row;
         }
+        $count = mysqli_num_rows($result);
         header("Content-type: application/json");
-        echo json_encode(["code" => 200, "data" => $rows]);
+        echo json_encode(["code" => 200, "data" => $rows, "rowCount" => $count, "sort_by" => $sort_by]);
     } catch (\Throwable $th) {
         header("Content-type: application/json");
         echo json_encode(["code" => 400, "message" => "An error occured!"]);
