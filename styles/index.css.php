@@ -173,15 +173,4 @@
         gap: 30px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
-
-    footer {
-        background-color: black;
-        height: 100px;
-    }
-
-    footer div {
-        color: white;
-        text-align: center;
-        padding-top: 40px;
-    }
 </style>

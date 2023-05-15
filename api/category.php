@@ -6,21 +6,43 @@ if (!$_SESSION["id"]) {
     exit();
 }
 
+$req_method = $_SERVER["REQUEST_METHOD"];
+
 // check if request method is GET and id parameter is not defined
-if ($_SERVER["REQUEST_METHOD"] == "GET" && !isset($_GET["id"])) {
-    //sql query for getting all categories from database
+if ($req_method == "GET" && !isset($_GET["category_id"])) {
     $sql = "SELECT * FROM categories";
-    //execute query on current connection
-    $result = mysqli_query($conn, $sql);
-    //turn result into a php array using while loop
-    $rows = [];
-    while ($row = mysqli_fetch_array($result)) {
-        $rows[] = $row;
+    try {
+        $result = mysqli_query($conn, $sql);
+        $rows = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $rows[] = $row;
+        }
+        header("Content-type: application/json");
+        echo json_encode(["code" => 200, "data" => $rows]);
+        exit;
+    } catch (\Throwable $th) {
+        header("Content-type: application/json");
+        echo json_encode(["code" => 400, "data" => "An error occured during fetching categories."]);
+        exit;
     }
-    //inform client that we will send json data
-    header("Content-type: application/json");
-    //turn php array to json and send to client
-    echo json_encode($rows);
 }
 
+if ($req_method == "GET" && isset($_GET["category_id"])) {
+    $category_id = $_GET["category_id"];
+    $sql = "SELECT * FROM categories WHERE id = '$category_id'";
+    try {
+        $result = mysqli_query($conn, $sql);
+        $rows = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $rows[] = $row;
+        }
+        header("Content-type: application/json");
+        echo json_encode(["code" => 200, "data" => $rows]);
+        exit;
+    } catch (\Throwable $th) {
+        header("Content-type: application/json");
+        echo json_encode(["code" => 400, "data" => "An error occured during fetching categories."]);
+        exit;
+    }
+}
 ?>

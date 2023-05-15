@@ -67,7 +67,10 @@ if (!isset($_SESSION["id"])) {
     <!-- cards section ends-->
 
     <!-- footer section starts-->
-    <?php include "includes/footer.php" ?>
+    <?php
+    include "includes/footer.php";
+    include "styles/footer.css.php";
+    ?>
     <!-- footer section ends-->
 </body>
 <!-- body ends-->

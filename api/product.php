@@ -7,65 +7,95 @@ if (!$_SESSION["id"]) {
 
 $req_method = $_SERVER["REQUEST_METHOD"];
 
-// check if request method is GET and featured parameter is set to true
-if ($req_method == "GET" && isset($_GET["featured"])) {
+//Send single product information 
+if ($req_method == "GET" && isset($_GET["product_id"])) {
     global $conn;
+    $product_id = $_GET["product_id"];
     try {
-        $sql = "SELECT * FROM products WHERE is_featured = 1";
+        $sql = "SELECT * FROM products WHERE id = '$product_id'";
         $result = mysqli_query($conn, $sql);
         $rows = [];
-        while ($row = mysqli_fetch_array($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $rows[] = $row;
         }
         header("Content-type: application/json");
-        echo json_encode($rows);
-    } catch (\Throwable $th) {
-        echo "eror";
-    }
-
-}
-
-// Send specific product information 
-if ($req_method == "GET" && isset($_GET["id"])) {
-    global $conn;
-    // Assign incoming id query parameter to a $id variable 
-    $id = $_GET["id"];
-    try {
-        $query = "SELECT * from products WHERE id='$id'";
-        $result = mysqli_query($conn, $query);
-        //turn mysqli array into php array
-        $rows = [];
-        while ($row = mysqli_fetch_array($result)) {
-            $rows[] = $row;
-        }
-        //inform client in the header that we send json data
-        header("Content-type: application/json");
-        //turn php array into json and send it 
         echo json_encode(["code" => 200, "data" => $rows]);
+        exit;
     } catch (\Throwable $th) {
         header("Content-type: application/json");
-        echo json_encode(["code" => 400, "message" => "An error occured!"]);
+        echo json_encode(["code" => 400, "message" => "An error occured. Could not fetch products."]);
+        exit;
     }
+
 }
 
-
-if ($req_method == "GET" && isset($_GET["category_id"])) {
+if ($req_method == "GET" && isset($_GET["category_id"]) && isset($_GET["sort_by"])) {
     global $conn;
     $category_id = $_GET["category_id"];
     $sort_by = $_GET["sort_by"];
+    $query = "";
+    if ($sort_by == "highest_first") {
+        $query = "SELECT * from products WHERE category_id='$category_id' ORDER BY price DESC";
+    } else if ($sort_by == "lowest_first") {
+        $query = "SELECT * from products WHERE category_id='$category_id' ORDER BY price ASC";
+    } else {
+        $query = "SELECT * from products WHERE category_id='$category_id' ORDER BY price DESC";
+    }
     try {
-        $query = "SELECT * from products WHERE category_id='$category_id'";
         $result = mysqli_query($conn, $query);
         $rows = [];
-        while ($row = mysqli_fetch_array($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $rows[] = $row;
         }
         $count = mysqli_num_rows($result);
         header("Content-type: application/json");
-        echo json_encode(["code" => 200, "data" => $rows, "rowCount" => $count, "sort_by" => $sort_by]);
+        echo json_encode(["code" => 200, "data" => $rows, "count" => $count]);
+        exit;
     } catch (\Throwable $th) {
         header("Content-type: application/json");
         echo json_encode(["code" => 400, "message" => "An error occured!"]);
+        exit;
+    }
+}
+
+if ($req_method == "GET" && isset($_GET["category_id"])) {
+    global $conn;
+    $category_id = $_GET["category_id"];
+    try {
+        $query = "SELECT * from products WHERE category_id='$category_id'";
+        $result = mysqli_query($conn, $query);
+        $rows = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $rows[] = $row;
+        }
+        $count = mysqli_num_rows($result);
+        header("Content-type: application/json");
+        echo json_encode(["code" => 200, "data" => $rows]);
+        exit;
+    } catch (\Throwable $th) {
+        header("Content-type: application/json");
+        echo json_encode(["code" => 400, "message" => "An error occured!"]);
+        exit;
+    }
+}
+
+// Send all products
+if ($req_method == "GET") {
+    global $conn;
+    try {
+        $sql = "SELECT * FROM products";
+        $result = mysqli_query($conn, $sql);
+        $rows = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $rows[] = $row;
+        }
+        header("Content-type: application/json");
+        echo json_encode(["code" => 200, "data" => $rows]);
+        exit;
+    } catch (\Throwable $th) {
+        header("Content-type: application/json");
+        echo json_encode(["code" => 400, "message" => "An error occured. Could not fetch products."]);
+        exit;
     }
 }
 ?>
