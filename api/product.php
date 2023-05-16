@@ -1,13 +1,13 @@
 <?php
 require_once "../includes/database.php";
-// exit if user is not logged in. protect api route from unauthorized access.
+// Exit if user is not logged in. protect api route from unauthorized access.
 if (!$_SESSION["id"]) {
     exit();
 }
 
 $req_method = $_SERVER["REQUEST_METHOD"];
 
-//Send single product information 
+// Send single product information 
 if ($req_method == "GET" && isset($_GET["product_id"])) {
     global $conn;
     $product_id = $_GET["product_id"];

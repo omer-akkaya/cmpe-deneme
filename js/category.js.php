@@ -1,38 +1,31 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    function redirectProduct(id) {
-        window.location.assign(`product.php?product_id=${id}`)
-    }
-
-    function mouseDown(id) {
-        $(`#${id}`).css("background-color", "#15803D")
-        $(`#${id}`).html("Item added to basket!")
-    }
-
-    function mouseUp(id) {
-        function fn() {
-            $(`#${id}`).css("background-color", "#14532D")
-            $(`#${id}`).html("Add to basket")
-        };
-        setTimeout(fn, 800);
-    }
+    let redirectProduct;
+    let mouseDown;
+    let mouseUp;
 
     $("document").ready(function () {
+        redirectProduct = function (id) {
+            window.location.assign(`product.php?product_id=${id}`)
+
+        }
+
+        mouseDown = function (id) {
+            $(`#${id}`).css("background-color", "#15803D")
+            $(`#${id}`).html("Item added to basket!")
+            $.ajax()
+        }
+
+        mouseUp = function (id) {
+            function fn() {
+                $(`#${id}`).css("background-color", "#14532D")
+                $(`#${id}`).html("Add to basket")
+            };
+            setTimeout(fn, 800);
+        }
+
         const params = (new URL(document.location)).searchParams;
         const id = params.get("category_id");
-
-        $.ajax({
-            url: `api/category.php?category_id=${id}`,
-            type: "get",
-            success: function (response) {
-                if (response.code == 200) {
-                    const categoryName = response.data[0].name
-                    $("#category-name").append(categoryName)
-                } else {
-                    console.log(response.message);
-                }
-            }
-        })
 
         function getProducts(selection) {
             $.ajax({
@@ -64,8 +57,6 @@
             })
         }
 
-        getProducts("highest_first");
-
         function onChangeHandler(event) {
             const selection = $("#sort_by").val();
             if (selection == "highest_first") {
@@ -77,8 +68,20 @@
 
         }
 
+        $.ajax({
+            url: `api/category.php?category_id=${id}`,
+            type: "get",
+            success: function (response) {
+                if (response.code == 200) {
+                    const categoryName = response.data[0].name
+                    $("#category-name").append(categoryName)
+                } else {
+                    console.log(response.message);
+                }
+            }
+        })
+
+        getProducts("highest_first");
         $("#sort_by").change(onChangeHandler)
-
-
     })
 </script>

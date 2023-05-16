@@ -29,17 +29,16 @@
     }
 
     #products {
-        margin: 50px auto 50px auto;
+        margin: 50px auto 150px auto;
         max-width: 1280px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 10px;
+        gap: 93.33px
     }
 
     #container {
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        margin-bottom: 40px;
+        margin-bottom: -50px;
     }
 
     .bestseller__item {
