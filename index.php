@@ -43,7 +43,7 @@ if (!isset($_SESSION["id"])) {
     <!-- best sellers section starts-->
     <div style="background-color: #f0efef;">
         <div class="bestseller">
-            <div class="bestseller__title">Best Sellers</div>
+            <div class="bestseller__title">Featured</div>
             <div class="bestseller__items"></div>
         </div>
     </div>

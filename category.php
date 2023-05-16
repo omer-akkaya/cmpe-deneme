@@ -1,8 +1,10 @@
 <?php
 include_once "includes/database.php";
-echo "category page"
-    //code for return if no session will be here
-    ?>
+
+if (!$_SESSION["id"]) {
+    exit;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

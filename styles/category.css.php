@@ -1,6 +1,10 @@
 <style>
     #main-banner {
-        margin-top: 80px;
+        width: 100%;
+        margin-top: 100px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        height: auto;
+        cursor: pointer;
     }
 
     .main-section {

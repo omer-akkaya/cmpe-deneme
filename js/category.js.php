@@ -3,7 +3,6 @@
     let redirectProduct;
     let mouseDown;
     let mouseUp;
-
     $("document").ready(function () {
         redirectProduct = function (id) {
             window.location.assign(`product.php?product_id=${id}`)
@@ -11,15 +10,21 @@
         }
 
         mouseDown = function (id) {
-            $(`#${id}`).css("background-color", "#15803D")
-            $(`#${id}`).html("Item added to basket!")
-            $.ajax()
-        }
-
-        mouseUp = function (id) {
+            // Logic for adding to basket
+            $.ajax({
+                url: "api/basket.php",
+                type: "post",
+                data: { product_id: id },
+                success: function (response) {
+                    assign_row_count(response.row_count);
+                }
+            })
+            // Logic for changing button style
+            $(`.${id}add`).css("background-color", "#15803D")
+            $(`.${id}add`).html("Item added to basket!")
             function fn() {
-                $(`#${id}`).css("background-color", "#14532D")
-                $(`#${id}`).html("Add to basket")
+                $(`.${id}add`).css("background-color", "#14532D")
+                $(`.${id}add`).html("Add to basket")
             };
             setTimeout(fn, 800);
         }
@@ -46,7 +51,7 @@
                             <div id="product_name">${product.name}</div>
                             <div class="bestseller__item__price">${product.price} ₺</div>
                         </div>
-                        <div class="add_to_basket" id = ${product.id + "add"} onmousedown="mouseDown(id)" onmouseup="mouseUp(id)">Add to basket</div>
+                        <div class="add_to_basket ${product.id + "add"}" onmousedown=mouseDown(${product.id})>Add to basket</div>
                     </div >
                 `)
                         });

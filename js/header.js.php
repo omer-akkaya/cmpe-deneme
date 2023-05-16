@@ -1,6 +1,15 @@
 <script src="https://kit.fontawesome.com/a868116e0a.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
+
+    function assign_row_count(row_count) {
+        $(".btn--basket").empty()
+        $(".btn--basket").append(`
+        <i class="fa-solid fa-basket-shopping"></i>
+        Basket (${row_count})
+        `)
+    }
+
     $("document").ready(function () {
         //get account information
         $.ajax({
@@ -8,6 +17,19 @@
             type: "get",
             success: ({ id, name, email }) => {
                 $(".btn--user").append(email)
+            }
+        })
+
+        $.ajax({
+            url: "api/basket.php?action=get_num_rows",
+            type: "get",
+            success: function (response) {
+                console.log(response.row_count);
+                $(".btn--basket").empty()
+                $(".btn--basket").append(`
+                 <i class="fa-solid fa-basket-shopping"></i>
+                Basket (${response.row_count})
+                `)
             }
         })
 
@@ -37,5 +59,7 @@
             }
             )
         })
+
+
     })
 </script>
