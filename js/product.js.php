@@ -8,19 +8,25 @@
             url: `api/product.php?product_id=${id}`,
             type: "get",
             success: function (response) {
-                if (response.code == 200) {
-                    const name = response.data[0].name
-                    const price = response.data[0].price
-                    const description = response.data[0].description
-                    const photo = response.data[0].photo
+                const name = response.data[0].name
+                const price = response.data[0].price
+                const description = response.data[0].description
+                const photo = response.data[0].photo
 
-                    $("#image").attr("src", photo)
-                    $("#title").html(name)
-                    $("#price").html(price)
-                    $("#description").html(description)
-                } else if (response.code == 200) {
-                    console.log(response.message);
-                }
+                $("#image").attr("src", photo)
+                $("#title").html(name)
+                $("#price").html(price + " ₺")
+                $("#description").html(description)
+                $("#add-to-basket").click(function () {
+                    $.ajax({
+                        url: "api/basket.php",
+                        type: "post",
+                        data: { product_id: id },
+                        success: function (response) {
+                            assign_row_count(response.row_count);
+                        }
+                    })
+                })
             }
         })
     })

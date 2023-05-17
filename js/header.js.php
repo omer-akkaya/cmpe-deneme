@@ -2,15 +2,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 
-    function assign_row_count(row_count) {
-        $(".btn--basket").empty()
-        $(".btn--basket").append(`
-        <i class="fa-solid fa-basket-shopping"></i>
-        Basket (${row_count})
-        `)
+    function assign_row_count() {
+        $.ajax({
+            url: "api/basket.php?action=get_num_rows",
+            type: "get",
+            success: function (response) {
+                $(".btn--basket").empty()
+                $(".btn--basket").append(`
+                 <i class="fa-solid fa-basket-shopping"></i>
+                Basket (${response.row_count || "0"})
+                `)
+            }
+        })
     }
 
     $("document").ready(function () {
+        assign_row_count()
         //get account information
         $.ajax({
             url: "api/user.php",
@@ -20,18 +27,6 @@
             }
         })
 
-        $.ajax({
-            url: "api/basket.php?action=get_num_rows",
-            type: "get",
-            success: function (response) {
-                console.log(response.row_count);
-                $(".btn--basket").empty()
-                $(".btn--basket").append(`
-                 <i class="fa-solid fa-basket-shopping"></i>
-                Basket (${response.row_count})
-                `)
-            }
-        })
 
         $(".btn--basket").click(function () {
             window.location.assign(`basket.php`)

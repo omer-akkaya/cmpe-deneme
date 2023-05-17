@@ -28,10 +28,14 @@ if (!isset($_SESSION["id"])) {
         <div class="main-information">
             <div id="title"></div>
             <div id="price"></div>
+            <div id="add-to-basket">Add to basket</div>
             <div id="description"></div>
         </div>
     </div>
     <!--Main section ends-->
+
+    <?php include "includes/footer.php";
+    include "styles/footer.css.php"; ?>
 </body>
 
 </html>

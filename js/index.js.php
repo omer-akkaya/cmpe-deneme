@@ -45,7 +45,7 @@
                         const name = category.name;
                         $(".categories__items").append(`
                     <div onClick="redirectCategory(id)" id = ${id} class= "categories__item" > 
-                        <img src="public/majezik.png">
+                        <img src="public/cleaners.jpg">
                         <div>${name}<div/>
                     </div >
                     `)
