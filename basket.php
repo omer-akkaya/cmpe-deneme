@@ -14,17 +14,17 @@ if (!$_SESSION["id"]) {
     <?php
     include "styles/basket.css.php";
     include "js/basket.js.php";
+    include "styles/header.css.php";
+    include "js/header.js.php";
     ?>
 </head>
 
 <body>
 
     <!-- Header starts -->
-    <?php include "includes/header.php";
-    include "styles/header.css.php";
-    include "js/header.js.php"; ?>
-    <!-- Header ends -->
+    <?php include "includes/header.php"; ?>
 
+    <!-- Header ends -->
     <main class="main">
         <section>
             <div id="item-count"></div>

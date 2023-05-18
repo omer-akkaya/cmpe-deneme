@@ -36,6 +36,10 @@
             window.location.assign(`profile.php`)
         })
 
+        $(".btn--previous-orders").click(function () {
+            window.location.assign(`previous-orders.php`)
+        })
+
         $("#logo").click(function () {
             window.location.assign(`index.php`)
         })

@@ -5,10 +5,8 @@ if (!$_SESSION["id"]) {
     exit();
 }
 
-$req_method = $_SERVER["REQUEST_METHOD"];
-
 if ($req_method == "POST" && isset($_POST["action"]) && $_POST["action"] == "confirm_order") {
-    $user_id = $_SESSION["id"];
+    global $user_id;
     $payment_type = $_POST["payment_type"];
     $total_price = $_POST["total_price"];
 
@@ -52,9 +50,43 @@ if ($req_method == "POST" && isset($_POST["action"]) && $_POST["action"] == "con
 }
 
 if ($req_method == "GET" && isset($_GET["action"]) && $_GET["action"] == "get_orders") {
-
+    global $user_id;
+    $sql = "SELECT * FROM orders WHERE user_id = '$user_id' ORDER BY id DESC";
+    $result = mysqli_query($conn, $sql);
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    header("Content-type: Application/json");
+    echo json_encode(["code" => 200, "data" => $rows]);
+    exit;
 }
 
-if ($req_method == "GET" && isset($_GET["action"]) && $_GET["action"] == "get_order_details") {
+if ($req_method == "GET" && isset($_GET["action"]) && $_GET["action"] == "get_single_order" && isset($_GET["order_id"])) {
+    global $user_id;
+    $order_id = $_GET["order_id"];
+    $sql = "SELECT * FROM orders WHERE user_id = '$user_id' AND id = '$order_id'";
+    $result = mysqli_query($conn, $sql);
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    header("Content-type: Application/json");
+    echo json_encode(["code" => 200, "data" => $rows]);
+    exit;
+}
+
+if ($req_method == "GET" && isset($_GET["action"]) && $_GET["action"] == "get_order_details" && isset($_GET["order_id"])) {
+    global $user_id;
+    $order_id = $_GET["order_id"];
+    $sql = "SELECT * FROM order_details WHERE user_id = '$user_id' AND order_id = '$order_id'";
+    $result = mysqli_query($conn, $sql);
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    header("Content-type: Application/json");
+    echo json_encode(["code" => 200, "data" => $rows]);
+    exit;
 }
 ?>

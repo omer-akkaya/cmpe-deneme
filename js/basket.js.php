@@ -83,7 +83,6 @@
                     window.location.assign("order-confirmed.php")
                 }
             })
-            // window.location.assign(`order-confirmed.php`)
         })
     })
 </script>

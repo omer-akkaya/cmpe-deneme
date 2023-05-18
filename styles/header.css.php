@@ -60,10 +60,15 @@
 
     .btn--logout {
         background-color: red;
+        min-width: 60px;
     }
 
     .btn--basket {
         background-color: blue;
+    }
+
+    .btn--previous-orders {
+        background-color: #27272A;
     }
 
     .btn--user {

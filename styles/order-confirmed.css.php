@@ -8,7 +8,7 @@
         align-items: center;
     }
 
-    .fa-solid.fa-clipboard-check {
+    #order-confirmed-icon {
         font-size: 300px;
     }
 
