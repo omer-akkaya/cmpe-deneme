@@ -5,6 +5,10 @@ include_once "includes/database.php";
 if (!isset($_SESSION["id"])) {
     header("Location: login.php");
 }
+
+if (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] == "1") {
+    header("Location: admin/index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,9 +17,10 @@ if (!isset($_SESSION["id"])) {
 <head>
     <title>eMed: Online Medical Shopping</title>
     <?php
-    include "js/header.js.php";
     include "styles/header.css.php";
     include "styles/index.css.php";
+    include "styles/footer.css.php";
+    include "js/header.js.php";
     include "js/index.js.php";
     ?>
 </head>
@@ -68,9 +73,7 @@ if (!isset($_SESSION["id"])) {
 
     <!-- footer section starts-->
     <?php
-    include "includes/footer.php";
-    include "styles/footer.css.php";
-    ?>
+    include "includes/footer.php"; ?>
     <!-- footer section ends-->
 </body>
 <!-- body ends-->

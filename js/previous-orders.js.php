@@ -17,6 +17,7 @@
                                 <div class="order-info-id"><a>Order ID:</a> ${order.id}</div>
                                 <div class="order-info-date"><a>Order Date:</a> ${order.timestamp}</div>
                                 <div class="order-info-payment"><a>Payment:</a> ${order.payment_type}</div>
+                                <div class="order-info-payment"><a>Delivered to:</a> ${order.adress}</div>
                             </div>
                             <div class="order-total">
                                 <div class="order-total-title">Order Total: </div>

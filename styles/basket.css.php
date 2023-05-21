@@ -68,7 +68,7 @@
     #basket-summary {
         background-color: #E4E4E7;
         width: 400px;
-        height: 450px;
+        height: 525px;
         padding: 30px;
         border-radius: 20px;
         display: flex;
@@ -126,5 +126,21 @@
 
     #confirm-order:hover {
         background-color: #064E3B;
+    }
+
+    #add-adress {
+        background-color: red;
+        text-align: center;
+        padding: 10px 0px 10px 0px;
+        font-size: 15px;
+        user-select: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .hidden {
+        display: none;
     }
 </style>

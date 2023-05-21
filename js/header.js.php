@@ -1,7 +1,6 @@
 <script src="https://kit.fontawesome.com/a868116e0a.js" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
-
     function assign_row_count() {
         $.ajax({
             url: "api/basket.php?action=get_num_rows",

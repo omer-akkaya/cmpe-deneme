@@ -11,6 +11,7 @@
                 $("#email").val(data.email)
                 $("#password").val(data.password)
                 $("#id").val(data.id)
+                $("#adress").val(data.adress)
             }
         })
 
@@ -19,13 +20,15 @@
             // Prevent default behaviour of form submit.
             event.preventDefault();
             // Get id, name, email, password and action values from the form. 
+            const action = $("#action").val()
             const id = $("#id").val()
             const name = $("#name").val()
             const email = $("#email").val()
             const password = $("#password").val()
-            const action = $("#action").val()
+            const adress = $("#adress").val()
+            const adress_title = $("#adress_title").val()
             // Create a JS object to send theese values to server.
-            const user = { id: id, name: name, email: email, password: password, action: action }
+            const user = { id, name, email, password, action, adress, adress_title }
             // Make an AJAX call to POST new values to server. 
             $.ajax({
                 url: "api/user.php",

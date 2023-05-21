@@ -1,6 +1,8 @@
 <?php
 include_once "includes/database.php";
-//code for return if no session will be here
+if (!isset($_SESSION["id"])) {
+    header("Location: login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +25,6 @@ include_once "includes/database.php";
         <div id="title">Your Previous Orders</div>
         <div id="previous-orders"></div>
     </main>
-
     <?php include "includes/footer.php"; ?>
 </body>
 

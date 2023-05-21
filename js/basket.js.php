@@ -57,21 +57,43 @@
         })
     }
 
+    function get_adress() {
+        $.ajax({
+            url: "api/user.php",
+            success: function (response) {
+                const adress = response.adress
+                if (!adress || adress == "") {
+                    console.log("true");
+                    $("#adress").addClass("hidden")
+                    $("#confirm-order").addClass("hidden")
+                    $("#add-adress").click(() => { window.location.assign("profile.php") })
+                }
+                if (adress != "") {
+                    $("#add-adress").addClass("hidden")
+                    $("#adress").append(`<option value="${adress}">Deliver to: ${adress}</option>`)
+                }
+            }
+        })
+    }
+
+
 
     $("document").ready(function () {
         get_num_rows()
         append_products()
+        get_adress()
 
 
         $("#confirm-order").click(function () {
             const totalPrice = +$("#price").text().slice(0, -2)
             if (totalPrice <= 0) {
-                console.log("cannot post 0");
-                return
+                alert("You must order at least 1 product.");
+                return;
             }
             const data = {
                 action: "confirm_order",
                 payment_type: $("#select").val(),
+                adress: $("#adress").val(),
                 total_price: totalPrice
             }
 

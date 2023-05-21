@@ -91,18 +91,9 @@
 
     }
 
-    #date {
-        display: flex;
-        justify-content: space-between;
-        font-size: 20px;
-    }
-
-    #payment {
-        display: flex;
-        justify-content: space-between;
-        font-size: 20px;
-    }
-
+    #date,
+    #payment,
+    #adress,
     #total-price {
         display: flex;
         justify-content: space-between;
@@ -112,7 +103,6 @@
     #total-price span {
         color: red;
         font-size: 30px;
-
     }
 
     #basket-summary select {

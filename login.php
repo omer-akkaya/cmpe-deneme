@@ -1,6 +1,5 @@
 <?php
 include_once "includes/database.php";
-// if session exist (user signed in), redirect to index page
 if (isset($_SESSION["id"])) {
     header("Location: index.php");
 }
@@ -10,10 +9,13 @@ if (isset($_SESSION["id"])) {
 
 <head>
     <title>Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <?php
-    require "js/login.js.php";
-    require "styles/login.css.php";
+    include "styles/login.css.php";
+    include "styles/footer.css.php";
+    include "js/login.js.php";
     ?>
+
 </head>
 
 <body>

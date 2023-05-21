@@ -1,13 +1,9 @@
 <?php
 include_once "includes/database.php";
-if (!$_SESSION["id"]) {
-    exit;
+if (!isset($_SESSION["id"])) {
+    header("Location: login.php");
 }
 ?>
-
-
-
-
 <!DOCTYPE html>
 
 <head>
@@ -25,8 +21,6 @@ if (!$_SESSION["id"]) {
     <?php include "includes/header.php" ?>
     <section>
         <div id="title">Order Detail</div>
-
-
         <main class="main">
             <section>
                 <div id="item-count">
@@ -38,11 +32,10 @@ if (!$_SESSION["id"]) {
                 <div id="order-summary">Order Summary</div>
                 <div id="date"></div>
                 <div id="payment"></div>
+                <div id="adress"></div>
                 <div id="total-price"></div>
             </section>
         </main>
-
-
     </section>
     <?php include "includes/footer.php" ?>
 </body>

@@ -1,8 +1,8 @@
 <?php
 include_once "includes/database.php";
 
-if (!$_SESSION["id"]) {
-    exit;
+if (!isset($_SESSION["id"])) {
+    header("Location: login.php");
 }
 ?>
 
@@ -12,10 +12,11 @@ if (!$_SESSION["id"]) {
 <head>
     <title>My Basket</title>
     <?php
-    include "styles/basket.css.php";
-    include "js/basket.js.php";
     include "styles/header.css.php";
+    include "styles/basket.css.php";
+    include "styles/footer.css.php";
     include "js/header.js.php";
+    include "js/basket.js.php";
     ?>
 </head>
 
@@ -34,12 +35,17 @@ if (!$_SESSION["id"]) {
             <div id="order-summary">Order Summary</div>
             <div id="includes"></div>
             <div id="total-price"></div>
+            <select id="adress">
+            </select>
             <select id="select">
-                <option value="card">Payment: Card</option>
-                <option value="cash">Payment: Cash</option>
+                <option value="Credit Card">Payment: Credit Card</option>
+                <option value="Cash">Payment: Cash</option>
             </select>
             <div id="confirm-order">
                 Confirm order <i class="fa-solid fa-angle-right"></i></i>
+            </div>
+            <div id="add-adress">
+                Please add an adress to proceed <i class="fa-solid fa-angle-right"></i></i>
             </div>
         </section>
     </main>
@@ -47,7 +53,7 @@ if (!$_SESSION["id"]) {
     <!-- footer section starts-->
     <?php
     include "includes/footer.php";
-    include "styles/footer.css.php";
+
     ?>
     <!-- footer section ends-->
 

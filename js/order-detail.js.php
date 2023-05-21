@@ -25,6 +25,7 @@
                 response = response.data[0]
                 $("#date").append(`<div>Time:</div><div>${response.timestamp}</div>`)
                 $("#payment").append(`<div>Payment:</div><div>${response.payment_type}</div>`)
+                $("#adress").append(`<div>Delivered to</div><div>${response.adress}</div>`)
                 $("#total-price").append(`<div>Total price</div><span id="price">${response.total_price} ₺</span>`)
             }
         })

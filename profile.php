@@ -37,6 +37,8 @@ if (!isset($_SESSION["id"])) {
         <input type="email" id="email">
         <label>Password</label>
         <input type="password" name="" id="password">
+        <label>Adress</label>
+        <textarea name="adress" id="adress" cols="30" rows="10"></textarea>
         <button id="button2">Update my information</button>
         <div id="success-message" class="hidden">Successfully updated!</div>
         <div id="error-message" class="hidden">An error occured...</div>

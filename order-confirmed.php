@@ -1,8 +1,9 @@
 <?php
 include_once "includes/database.php";
-echo "order confirmed"
-    //code for return if no session will be here
-    ?>
+if (!isset($_SESSION["id"])) {
+    header("Location: login.php");
+}
+?>
 
 
 <!DOCTYPE html>
@@ -26,8 +27,7 @@ echo "order confirmed"
         <div id="go-to-home">Go to home page</div>
         <div id="go-to-previous-orders">Display previous orders</div>
     </main>
-    <?php include "includes/footer.php";
-    ?>
+    <?php include "includes/footer.php"; ?>
 </body>
 
 </html>

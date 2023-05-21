@@ -1,8 +1,8 @@
 <?php
 include_once "includes/database.php";
 
-if (!$_SESSION["id"]) {
-    exit;
+if (!isset($_SESSION["id"])) {
+    header("Location: login.php");
 }
 ?>
 
@@ -12,6 +12,9 @@ if (!$_SESSION["id"]) {
 <head>
     <title>Category</title>
     <?php
+    include "js/header.js.php";
+    include "styles/header.css.php";
+    include "styles/footer.css.php";
     include "styles/category.css.php";
     include "js/category.js.php";
     ?>
@@ -19,9 +22,8 @@ if (!$_SESSION["id"]) {
 
 <body>
     <!-- Header starts -->
-    <?php include "includes/header.php";
-    include "styles/header.css.php";
-    include "js/header.js.php"; ?>
+    <?php include "includes/header.php"; ?>
+
     <!-- Header ends -->
 
     <!-- Main banner starts -->
@@ -52,7 +54,6 @@ if (!$_SESSION["id"]) {
     <!-- footer section starts-->
     <?php
     include "includes/footer.php";
-    include "styles/footer.css.php";
     ?>
     <!-- footer section ends-->
 
