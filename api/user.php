@@ -25,7 +25,7 @@ if ($req_method == "POST" && $_POST["action"] == "register") {
         echo "Username has already taken...";
         exit;
     }
-    $query = "INSERT INTO customer VALUES ('','$name','$email','$password')";
+    $query = "INSERT INTO customer(name,email,password) VALUES ('$name','$email','$password')";
     mysqli_query($conn, $query);
     echo "Registiration is successful";
     exit;
