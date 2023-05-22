@@ -43,9 +43,10 @@
                     response.data.forEach((category) => {
                         const id = category.id;
                         const name = category.name;
+                        const photo_url = category.photo_url;
                         $(".categories__items").append(`
                     <div onClick="redirectCategory(id)" id = ${id} class= "categories__item" > 
-                        <img src="public/cleaners.jpg">
+                        <img src="${photo_url}">
                         <div>${name}<div/>
                     </div >
                     `)

@@ -21,6 +21,8 @@
                     console.log(response);
                     if (response == "Login successful") {
                         window.location.replace("index.php")
+                    } else {
+                        alert(response)
                     }
                 },
 

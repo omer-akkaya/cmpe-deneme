@@ -55,13 +55,6 @@ if ($req_method == "POST" && $_POST["action"] == "login") {
     exit;
 }
 
-if ($req_method == "POST" && $_POST["action"] == "logout") {
-    session_unset();
-    session_destroy();
-    echo "success";
-    exit;
-}
-
 if ($req_method == "POST" and $_POST["action"] == "update-profile") {
     $id = $_POST["id"];
     $name = $_POST["name"];
@@ -79,6 +72,13 @@ if ($req_method == "POST" and $_POST["action"] == "update-profile") {
     mysqli_query($conn, $query);
     header("Content-type: Application-json");
     echo json_encode(["code" => 200, "message" => "Successfully updated user"]);
+    exit;
+}
+
+if ($req_method == "POST" && $_POST["action"] == "logout") {
+    session_unset();
+    session_destroy();
+    echo "success";
     exit;
 }
 ?>

@@ -20,6 +20,8 @@
                     console.log(response);
                     if (response == "Registiration is successful") {
                         window.location.replace("index.php")
+                    } else {
+                        alert(response)
                     }
                 },
 

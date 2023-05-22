@@ -21,7 +21,6 @@
         /* this project is designed desktop only */
         min-width: 1500px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
     }
 
     .header-flex {
