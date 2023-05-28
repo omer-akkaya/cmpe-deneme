@@ -15,7 +15,7 @@
         })
     }
 
-    $("document").ready(function () {
+    $(document).ready(function () {
         assign_row_count()
         //get account information
         $.ajax({

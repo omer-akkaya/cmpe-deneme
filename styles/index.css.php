@@ -10,12 +10,13 @@
     .categories {
         max-width: 1280px;
         margin: auto;
-        margin-top: 40px;
+        padding-top: 40px;
     }
 
     .categories__title {
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        background-color: #f0efef;
+        color: white;
+        background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
         text-align: center;
         font-size: 25px;
         font-weight: 500;
@@ -74,7 +75,8 @@
 
     .bestseller__title {
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        background-color: white;
+        background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+        color: white;
         text-align: center;
         font-size: 25px;
         font-weight: 500;
@@ -162,7 +164,9 @@
     .cards__card {
         width: 400px;
         height: 200px;
-        background-color: #f0efef;
+
+        background-image: linear-gradient(to right, #ff6e7f, #bfe9ff);
+        color: black;
         text-align: center;
         padding: 20px;
         border-radius: 40px;

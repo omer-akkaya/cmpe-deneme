@@ -1,6 +1,8 @@
 <header>
     <div class="header-flex">
-        <div id="logo">eMed Logo</div>
+        <div id="logo">
+            <img src="public/logo2.png" width="90" height="60" />
+        </div>
         <div class="header-flex__right">
             <div class="btn btn--basket">
             </div>

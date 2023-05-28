@@ -2,7 +2,19 @@
   let redirectProduct;
   let mouseDown;
   let mouseUp;
-  $("document").ready(function () {
+  const params = new URL(document.location).searchParams;
+  const id = params.get("category_id");
+
+  $(document).ready(function () {
+    $.ajax({
+      url: `api/category.php?category_id=${id}`,
+      success: (response) => {
+        const banner_url = response.data[0].banner_url
+        console.log(banner_url);
+        $("#main-banner").attr("src", `${banner_url}`)
+      }
+    })
+
     redirectProduct = function (id) {
       window.location.assign(`product.php?product_id=${id}`);
     };
@@ -26,9 +38,6 @@
       }
       setTimeout(fn, 800);
     };
-
-    const params = new URL(document.location).searchParams;
-    const id = params.get("category_id");
 
     function getProducts(selection) {
       $.ajax({
@@ -61,7 +70,7 @@
       });
     }
 
-    function onChangeHandler(event) {
+    function onChangeHandler() {
       const selection = $("#sort_by").val();
       if (selection == "highest_first") {
         getProducts("highest_first");
@@ -86,5 +95,7 @@
 
     getProducts("highest_first");
     $("#sort_by").change(onChangeHandler);
+
+
   });
 </script>

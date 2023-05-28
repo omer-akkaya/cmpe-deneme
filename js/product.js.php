@@ -1,12 +1,10 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    $("document").ready(function () {
+    $(document).ready(function () {
         const params = (new URL(document.location)).searchParams;
         const id = params.get("product_id")
 
         $.ajax({
             url: `api/product.php?product_id=${id}`,
-            type: "get",
             success: function (response) {
                 const name = response.data[0].name
                 const price = response.data[0].price
@@ -17,6 +15,7 @@
                 $("#title").html(name)
                 $("#price").html(price + " ₺")
                 $("#description").html(description)
+
                 $("#add-to-basket").click(function () {
                     $.ajax({
                         url: "api/basket.php",

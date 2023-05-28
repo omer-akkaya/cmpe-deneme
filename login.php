@@ -9,7 +9,6 @@ if (isset($_SESSION["id"])) {
 
 <head>
     <title>Login</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <?php
     include "styles/login.css.php";
     include "styles/footer.css.php";
@@ -22,7 +21,7 @@ if (isset($_SESSION["id"])) {
     <!-- header starts-->
     <header>
         <div class="header-flex">
-            <div>iMed Logo</div>
+            <img src="public/logo2.png" width="90" height="60" />
         </div>
         </div>
     </header>

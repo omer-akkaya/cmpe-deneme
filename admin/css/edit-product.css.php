@@ -7,9 +7,7 @@
 
     form {
         width: 500px;
-        margin-top: 50px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 20px auto;
         max-width: 1280px;
         display: flex;
         flex-direction: column;

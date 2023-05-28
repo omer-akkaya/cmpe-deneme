@@ -1,4 +1,4 @@
-<script defer>
+<script>
     let redirectProduct;
     let mouseDown;
     let mouseUp;
@@ -8,7 +8,7 @@
     }
 
     //wait for document load
-    $("document").ready(function () {
+    $(document).ready(function () {
         redirectProduct = function (id) {
             window.location.assign(`product.php?product_id=${id}`)
 

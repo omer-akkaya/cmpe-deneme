@@ -1,6 +1,6 @@
 <header>
     <div class="header-flex">
-        <div id="logo">eMed Logo</div>
+        <img src="../public/logo2.png" id="logo" width="90" height="60" />
         <div class="header-flex__right">
             <div class="btn btn--add-product">
                 Add Product

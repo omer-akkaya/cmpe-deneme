@@ -1,7 +1,5 @@
 <?php
-// -------------------------------------------------------- COMPLETED
 include_once "includes/database.php";
-// if session exist (user signed in), redirect to index page
 if (isset($_SESSION["id"])) {
     header("Location: index.php");
 }
@@ -16,6 +14,7 @@ if (isset($_SESSION["id"])) {
     <?php
     require "js/register.js.php";
     require "styles/register.css.php";
+    include "styles/footer.css.php";
     ?>
 </head>
 <!-- head ends-->
@@ -26,7 +25,7 @@ if (isset($_SESSION["id"])) {
     <!-- header starts-->
     <header>
         <div class="header-flex">
-            <div>iMed Logo</div>
+            <img src="public/logo2.png" width="90" height="60" />
         </div>
         </div>
     </header>

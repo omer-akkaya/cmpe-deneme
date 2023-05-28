@@ -8,8 +8,10 @@ if (!isset($_SESSION["id"])) {
 <!DOCTYPE html>
 
 <head>
-    <title>Product Page</title>
+    <title>Product</title>
     <?php
+    include "styles/header.css.php";
+    include "js/header.js.php";
     include "js/product.js.php";
     include "styles/product.css.php";
     ?>
@@ -17,9 +19,7 @@ if (!isset($_SESSION["id"])) {
 
 <body>
     <!-- Header starts -->
-    <?php include "includes/header.php";
-    include "styles/header.css.php";
-    include "js/header.js.php"; ?>
+    <?php include "includes/header.php"; ?>
     <!-- Header ends -->
 
     <!--Main section starts-->

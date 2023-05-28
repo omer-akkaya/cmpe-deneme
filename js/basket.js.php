@@ -1,4 +1,3 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     function delete_button_handler(event, id) {
         event.stopPropagation()
@@ -78,7 +77,7 @@
 
 
 
-    $("document").ready(function () {
+    $(document).ready(function () {
         get_num_rows()
         append_products()
         get_adress()

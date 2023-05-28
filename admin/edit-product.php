@@ -10,7 +10,7 @@
     <?php include "js/header.js.php" ?>
     <?php include "css/edit-product.css.php" ?>
     <?php include "js/edit-product.js.php" ?>
-    <title>Add Product</title>
+    <title>Edit Product</title>
 </head>
 
 <body>

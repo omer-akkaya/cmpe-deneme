@@ -1,3 +1,5 @@
 <footer>
-    <div>Copyright 2023 / CMPE 372 Project Group 2</div>
+    <div>Copyright
+        <?php echo date("Y"); ?> / CMPE 372 PG-2
+    </div>
 </footer>

@@ -1,6 +1,6 @@
 <style>
     main {
-        padding: 150px 0px 150px 0px;
+        padding: 150px 0px;
         display: flex;
         flex-direction: column;
         gap: 40px;

@@ -105,15 +105,6 @@
         font-size: 30px;
     }
 
-    #basket-summary select {
-        padding: 10px;
-        border: 0px solid black;
-        text-align: center;
-        font-size: 20px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
-    }
-
     #confirm-order {
         background-color: #065F46;
         text-align: center;

@@ -15,7 +15,7 @@
         position: fixed;
         top: 0px;
         height: 100px;
-        background-color: black;
+        background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
         width: 100%;
         z-index: 10;
         /* this project is designed desktop only */
@@ -42,10 +42,10 @@
 
     #logo {
         user-select: none;
-        border-radius: 30px;
+        border-radius: 50px;
         cursor: pointer;
-        background-color: #27272A;
-        padding: 15px;
+        /* background-color: rgba(255, 255, 255, 1); */
+        padding: 10px;
     }
 
     .btn {
@@ -63,7 +63,8 @@
     }
 
     .btn--basket {
-        background-color: blue;
+        background-color: #82b74b;
+        color: black;
     }
 
     .btn--previous-orders {

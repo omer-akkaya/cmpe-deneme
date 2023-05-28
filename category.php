@@ -7,7 +7,6 @@ if (!isset($_SESSION["id"])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
     <title>Category</title>
@@ -27,7 +26,7 @@ if (!isset($_SESSION["id"])) {
     <!-- Header ends -->
 
     <!-- Main banner starts -->
-    <img id="main-banner" src="public/hero.jpg" />
+    <img id="main-banner" />
     <!-- Main banner ends -->
 
     <!-- Main section starts-->
@@ -49,7 +48,6 @@ if (!isset($_SESSION["id"])) {
     <!-- Products starts-->
     <section id="products"></section>
     <!-- Products ends-->
-
 
     <!-- footer section starts-->
     <?php

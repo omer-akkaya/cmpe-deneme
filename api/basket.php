@@ -30,7 +30,6 @@ if ($req_method == "GET" && isset($_GET["action"]) && $_GET["action"] == "get_nu
     exit;
 }
 
-
 if ($req_method == "GET" && isset($_GET["action"]) && $_GET["action"] == "get_basket") {
     $sql = "SELECT basket.product_id, products.name, basket.count, products.price FROM basket LEFT JOIN products ON basket.product_id = products.id  WHERE user_id = '$user_id'";
     $result = mysqli_query($conn, $sql);
@@ -52,7 +51,6 @@ if ($req_method == "GET" && isset($_GET["action"]) && $_GET["action"] == "delete
     echo json_encode(["code" => 200, "data" => "success"]);
     exit;
 }
-
 
 if ($req_method == "POST") {
     $product_id = $_POST["product_id"];

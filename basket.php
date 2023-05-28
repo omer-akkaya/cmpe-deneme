@@ -10,7 +10,7 @@ if (!isset($_SESSION["id"])) {
 <!DOCTYPE html>
 
 <head>
-    <title>My Basket</title>
+    <title>Basket</title>
     <?php
     include "styles/header.css.php";
     include "styles/basket.css.php";

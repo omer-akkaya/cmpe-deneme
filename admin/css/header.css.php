@@ -45,8 +45,6 @@
         user-select: none;
         border-radius: 30px;
         cursor: pointer;
-        background-color: #27272A;
-        padding: 15px;
     }
 
     .btn {

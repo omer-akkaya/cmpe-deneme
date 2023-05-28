@@ -13,6 +13,7 @@
     }
 
     header {
+        background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
         position: fixed;
         top: 0px;
         height: 100px;

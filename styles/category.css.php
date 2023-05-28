@@ -3,7 +3,6 @@
         width: 100%;
         margin-top: 100px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        height: auto;
         cursor: pointer;
     }
 
@@ -14,8 +13,6 @@
         justify-content: space-between;
         align-items: center;
     }
-
-    .main-section--title {}
 
     #category-name {
         font-size: 30px;
@@ -65,10 +62,6 @@
     .bestseller__item__image {
         width: 100%;
         height: 270px;
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center
     }
 
     .bestseller__item__image img {

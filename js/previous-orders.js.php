@@ -4,12 +4,11 @@
     }
 
 
-    $("document").ready(function () {
+    $(document).ready(function () {
         $.ajax({
             url: "api/order.php?action=get_orders",
             success: function (response) {
                 const data = response.data
-
                 data.forEach(order => {
                     $("#previous-orders").append(`
                         <div onclick=clickHandler(${order.id}) class="previous-order">

@@ -1,7 +1,6 @@
 <?php
-// include database connection and session
 include_once "includes/database.php";
-// redirect user to login page if session does not exists
+
 if (!isset($_SESSION["id"])) {
     header("Location: login.php");
 }
@@ -15,7 +14,7 @@ if (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] == "1") {
 <!-- head starts-->
 
 <head>
-    <title>eMed: Online Medical Shopping</title>
+    <title>Medline: Online Pharmacy Store</title>
     <?php
     include "styles/header.css.php";
     include "styles/index.css.php";
@@ -35,7 +34,7 @@ if (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] == "1") {
     <!-- header ends-->
 
     <!-- hero section starts-->
-    <img id="hero" src="public/hero.jpg">
+    <img id="hero" src="public/hero.png">
     <!-- hero section ends-->
 
     <!-- categories section starts-->
@@ -46,7 +45,7 @@ if (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] == "1") {
     <!-- categories section ends-->
 
     <!-- best sellers section starts-->
-    <div style="background-color: #f0efef;">
+    <div style="background-image: linear-gradient(to right, #b6fbff, #83a4d4);">
         <div class="bestseller">
             <div class="bestseller__title">Featured</div>
             <div class="bestseller__items"></div>

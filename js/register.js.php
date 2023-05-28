@@ -1,7 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     //wait for document loading to finish
-    $("document").ready(function () {
+    $(document).ready(function () {
         //assign onclick function to button1
         $("#button1").click(function (event) {
             event.preventDefault();

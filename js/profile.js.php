@@ -1,7 +1,6 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
     // Wait document to be ready.
-    $("document").ready(function () {
+    $(document).ready(function () {
         // Send get request to server for getting all user information.
         $.ajax({
             url: "api/user.php",

@@ -3,7 +3,7 @@
         display: flex;
         flex-direction: column;
         max-width: 1280px;
-        margin: 200px auto 200px auto;
+        margin: 200px auto;
     }
 
     #title {
@@ -15,7 +15,7 @@
     #previous-orders {}
 
     .previous-order {
-        background-color: lightgrey;
+        background-color: #deeaee;
         width: 75%;
         margin: 20px auto 20px auto;
         display: flex;

@@ -1,6 +1,5 @@
 <?php
 include_once "includes/database.php";
-// redirect user to login page if session does not exists
 if (!isset($_SESSION["id"])) {
     header("Location: login.php");
 }
@@ -11,6 +10,8 @@ if (!isset($_SESSION["id"])) {
 <head>
     <title>Profile</title>
     <?php
+    include "styles/header.css.php";
+    include "js/header.js.php";
     include "js/profile.js.php";
     include "styles/profile.css.php";
     ?>
@@ -18,9 +19,7 @@ if (!isset($_SESSION["id"])) {
 
 <body>
     <!-- Header starts -->
-    <?php include "includes/header.php";
-    include "styles/header.css.php";
-    include "js/header.js.php"; ?>
+    <?php include "includes/header.php"; ?>
     <!-- Header ends -->
 
     <!-- Title starts -->

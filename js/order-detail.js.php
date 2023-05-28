@@ -31,7 +31,7 @@
         })
     }
 
-    $("document").ready(function () {
+    $(document).ready(function () {
         const params = (new URL(document.location)).searchParams;
         const id = params.get("order_id")
         append_products(id)
