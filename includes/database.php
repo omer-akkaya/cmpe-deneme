@@ -2,9 +2,9 @@
 session_start();
 
 $servername = "localhost";
-$username = "root";
-$password = "";
-$database = "cmpe-deneme";
+$username = "abc";
+$password = "abc";
+$database = "group2";
 
 $conn = mysqli_connect($servername, $username, $password, $database);
 ?>

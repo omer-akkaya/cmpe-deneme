@@ -5,6 +5,7 @@
 
         $.ajax({
             url: `../api/product.php?product_id=${id}`,
+            type: "get",
             success: (response) => {
                 $("#name").val(response.data[0].name)
                 $("#description").val(response.data[0].description)

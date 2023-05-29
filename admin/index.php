@@ -27,9 +27,7 @@
             </div>
         </section>
         <div id="products-title">Products on sale</div>
-        <section id="products">
-
-        </section>
+        <section id="products"></section>
     </main>
 </body>
 

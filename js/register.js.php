@@ -19,7 +19,7 @@
                     console.log(data);
                     console.log(response);
                     if (response == "Registiration is successful") {
-                        window.location.replace("index.php")
+                        window.location.replace("login.php")
                     } else {
                         alert(response)
                     }

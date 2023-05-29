@@ -6,7 +6,6 @@
         $("#button1").click(function (event) {
             event.preventDefault();
             const data = {
-                name: $("#name").val(),
                 email: $("#email").val(),
                 password: $("#password").val(),
                 action: $("#action").val()

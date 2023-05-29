@@ -96,16 +96,20 @@ if ($req_method == "GET" && isset($_GET["action"]) && $_GET["action"] == "get_or
 
 if ($req_method == "GET" && isset($_GET["action"]) && $_GET["action"] == "admin_summary") {
     // RETURN TOTAL ORDER NUMBER, TOTAL REVENUE, AVERAGE ORDER AMOUNT
+
     $sql = "SELECT * FROM orders";
     $result = mysqli_query($conn, $sql);
     $order_count = mysqli_num_rows($result);
+
     $sql = "SELECT sum(total_price) FROM orders";
     $result = mysqli_query($conn, $sql);
     $total_revenue;
     while ($row = mysqli_fetch_assoc($result)) {
         $total_revenue = $row["sum(total_price)"];
     }
+
     $average_order_amount = round($total_revenue / $order_count, 2);
+
     header("Content-type: Application/json");
     echo json_encode(["code" => 200, "order_count" => $order_count, "total_revenue" => $total_revenue, "average_order_amount" => $average_order_amount]);
 }

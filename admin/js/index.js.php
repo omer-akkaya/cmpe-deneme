@@ -7,6 +7,7 @@
     $("document").ready(() => {
         $.ajax({
             url: "../api/order.php?action=admin_summary",
+            type: "get",
             success: (response) => {
                 $("#total-revenue").append(`${response.total_revenue} TL`)
                 $("#order-count").append(response.order_count)
@@ -16,6 +17,7 @@
 
         $.ajax({
             url: "../api/product.php",
+            type: "get",
             success: (response) => {
                 response.data.forEach(product => {
                     $("#products").append(`
